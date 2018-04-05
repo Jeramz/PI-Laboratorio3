@@ -1,6 +1,0 @@
-Codigo/nombre/plan
-
-1/jesus/sistemas
-2/andres/sistemas
-1/jesus/sistemas
-2/andres/sistemas
