@@ -1,0 +1,4 @@
+Codigo/nombre/creditos
+
+1/calculo/4
+2/fisica/4
