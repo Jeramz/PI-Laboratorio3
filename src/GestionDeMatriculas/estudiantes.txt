@@ -1,6 +1,6 @@
-Codigo/nombre/plan
-
-1/jesus/sistemas
-2/andres/sistemas
-1/jesus/sistemas
-2/andres/sistemas
+1/jesus/sistemas/calculo/4.0
+1/jesus/sistemas/fisica/0.0
+1/jesus/sistemas/calculo/5.0
+1/jesus/sistemas/fisica/0.0
+1/jesus/sistemas/calculo/5.0
+1/jesus/sistemas/fisica/0.0

@@ -29,7 +29,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
     String listaCursos[];
 
     public GestionMatriculasGUI(){
-        
+        cerrar();
         //Inicializar panels
         panelCursos=new JPanel();
         panelCursos.setLayout(new FlowLayout());
@@ -78,6 +78,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
         btListarEstudiante.addActionListener(this);
         btPromedioCurso.addActionListener(this);
         btMejorEstudiante.addActionListener(this);
+        
         
         //Inicializar TextFields
         tfCodigoCurso=new JTextField(10);
@@ -156,6 +157,21 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
         
         
     }
+    
+    public void cerrar(){
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter(){
+              public void windowClosing(WindowEvent e){
+                  int valor=JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa? los datos se guardarán automáticamente","Advertencia",JOptionPane.YES_NO_OPTION);
+                  if(valor==JOptionPane.YES_OPTION){
+                      guardarDatos.guardarCursos(miuniversidad.getArrayCurso());
+                      guardarDatos.closeFiles();
+                      System.exit(0);
+                  }
+              }
+        });
+        this.setVisible(true);
+    }
     //Actualiza los elementos en el comboBox
     public void setcombo(String[] lista,JComboBox combo ){
         lista=new String[miuniversidad.numeroCursos()];
@@ -172,7 +188,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==btGuardarDatos){
-            guardarDatos.guardarCursos(miuniversidad.getArrayCurso(),miuniversidad.getArrayestudiantes(miuniversidad.getArrayCurso()));
+            guardarDatos.guardarCursos(miuniversidad.getArrayCurso());
             
         }
         if(e.getSource()==btAgregarCurso){
@@ -246,6 +262,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
             catch(NullPointerException ex){
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun curso");
             }
+            guardarDatos.guardarnotas(miuniversidad.getArrayCurso(), tfNotaEstudiante.getText(), tfCodigoEstudiante.getText());
             tfCodigoAgregarNota.setText("");
             tfNotaEstudiante.setText("");
         }
@@ -267,11 +284,11 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun curso");
             }
         }
+
     }
     public static void main(String[] args) {
         GestionMatriculasGUI p=new GestionMatriculasGUI();
         p.setVisible(true);
-        p.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         p.setSize(1000, 300);
     }
     
