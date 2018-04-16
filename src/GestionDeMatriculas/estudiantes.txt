@@ -1,6 +1,6 @@
-1/jesus/sistemas/calculo/4.0
-1/jesus/sistemas/fisica/0.0
 1/jesus/sistemas/calculo/5.0
-1/jesus/sistemas/fisica/0.0
-1/jesus/sistemas/calculo/5.0
-1/jesus/sistemas/fisica/0.0
+2/samuel/sistemas/calculo/1.0
+1/jesus/sistemas/fisica/3.0
+2/samuel/sistemas/fisica/2.0
+1/jesus/sistemas/matematicas/5.0
+2/brayan/sistemas/matematicas/3.0

@@ -1,6 +1,5 @@
 1/calculo/4
 2/fisica/4
-2/fisica/4
-2/fisica/4
 3/discretas/4
-2/fisica/4
+4/matematicas/4
+5/biologia/4

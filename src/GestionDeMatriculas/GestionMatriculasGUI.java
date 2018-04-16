@@ -18,7 +18,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
     Container contenedor;
     JTabbedPane tabbedPane;
     JPanel panelCursos,panelAgregarCursos, panelEstudiante,panelNotasEstudiante, panelListarPromedioMejor,panelEstudiantes;
-    JButton btAgregarCurso, btAgregarEstudiante, btMatricularEstudiante,btAgregarNotaEstudiante,btListarEstudiante,btPromedioCurso,btMejorEstudiante,btGuardarDatos;
+    JButton btAgregarCurso, btAgregarEstudiante, btMatricularEstudiante,btAgregarNotaEstudiante,btListarEstudiante,btPromedioCurso,btMejorEstudiante,btGuardarDatos,btCargarDatos;
     JLabel lbCodigoCurso,lbNombreCurso,lbCreditosCurso,lbCodigoEstudiante,lbNombreEstudiante,lbPlanEstudio,lbCodigoAgregarNota,lbNombreCursoNota,lbNotaEstudiante,lbSeleccionarCurso,lbSeleccionarCursoA;
     JTextField tfCodigoCurso,tfNombreCurso,tfCreditosCurso,tfCodigoEstudiante,tfNombreEstudiante,tfPlanEstudio,tfCodigoAgregarNota,tfNombreCursoNota,tfNotaEstudiante;
     JComboBox comboMatricularCursos,comboCursoA,comboCursoNota;
@@ -64,6 +64,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
         
         //Inicializar Botones
         btGuardarDatos=new JButton("Guardar Datos");
+        btCargarDatos=new JButton("Cargar Datos");
         btAgregarCurso=new JButton("Agregar");
         btMatricularEstudiante=new JButton("Matricular");
         btAgregarNotaEstudiante=new JButton("Agregar Nota");
@@ -71,6 +72,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
         btPromedioCurso=new JButton("Promedio del Curso");
         btMejorEstudiante=new JButton("Mejor estudiante");
         
+        btCargarDatos.addActionListener(this);
         btGuardarDatos.addActionListener(this);
         btAgregarCurso.addActionListener(this);
         btMatricularEstudiante.addActionListener(this);
@@ -119,6 +121,8 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
         panelAgregarCursos.add(tfCreditosCurso);
         panelAgregarCursos.add(btAgregarCurso);
         panelAgregarCursos.add(btGuardarDatos);
+        panelAgregarCursos.add(btCargarDatos);
+        
         panelListarPromedioMejor.add(btListarEstudiante);
         panelListarPromedioMejor.add(btPromedioCurso);
         panelListarPromedioMejor.add(btMejorEstudiante);
@@ -187,6 +191,12 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
     
     
     public void actionPerformed(ActionEvent e){
+        if(e.getSource()==btCargarDatos){
+            guardarDatos.cargarDatos(miuniversidad);
+            this.setcombo(listaCursos, comboMatricularCursos);
+            this.setcombo(listaCursos, comboCursoA);
+            this.setcombo(listaCursos, comboCursoNota);
+        }
         if(e.getSource()==btGuardarDatos){
             guardarDatos.guardarCursos(miuniversidad.getArrayCurso());
             
@@ -213,6 +223,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
             }
             catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Hay Campos que no se han llenado");
+                
             }
             tfCodigoCurso.setText("");
             tfNombreCurso.setText("");
@@ -254,7 +265,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
             String codigo=tfCodigoAgregarNota.getText();
             double nota=Double.parseDouble(tfNotaEstudiante.getText());
             
-            miuniversidad.asignarNotaCurso(codigo,miuniversidad.getCurso(comboCursoA.getItemAt(comboCursoA.getSelectedIndex()).toString()) , nota);
+            miuniversidad.asignarNotaCurso(codigo,miuniversidad.getCurso(comboCursoNota.getItemAt(comboCursoNota.getSelectedIndex()).toString()) , nota);
             
             }catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(null, "Debe ingresar un numero en nota");
@@ -262,7 +273,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
             catch(NullPointerException ex){
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun curso");
             }
-            guardarDatos.guardarnotas(miuniversidad.getArrayCurso(), tfNotaEstudiante.getText(), tfCodigoEstudiante.getText());
+            
             tfCodigoAgregarNota.setText("");
             tfNotaEstudiante.setText("");
         }
