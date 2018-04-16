@@ -8,7 +8,7 @@
   email: jesus.zuluaga@correounivalle.edu.co - samuel.velasco@correounivalle.edu.co - andres.lopez@correounivalle.edu.co
   fecha: 21 Marzo 2018
  */
-package GestionDeMatriculas;
+package GestionDeMatriculasBinaryFile;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

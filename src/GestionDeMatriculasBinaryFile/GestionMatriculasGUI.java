@@ -4,7 +4,7 @@
   email: jesus.zuluaga@correounivalle.edu.co - samuel.velasco@correounivalle.edu.co - andres.lopez@correounivalle.edu.co
   fecha: 21 Marzo 2018
  */
-package GestionDeMatriculas;
+package GestionDeMatriculasBinaryFile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,7 @@ public class GestionMatriculasGUI extends JFrame implements ActionListener{
     JComboBox comboMatricularCursos,comboCursoA,comboCursoNota;
     JList listaEstudiantes;
     
-    TextFile guardarDatos=new TextFile();
+    BinaryFile guardarDatos=new BinaryFile();
     Universidad miuniversidad=new Universidad();
     String listaCursos[];
 

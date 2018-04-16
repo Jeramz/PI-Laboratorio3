@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestionDeMatriculas;
+package GestionDeMatriculasTextFile;
 
 import java.util.ArrayList;
 import java.io.BufferedWriter;
@@ -29,12 +29,12 @@ public class TextFile {
     
     public TextFile(){
         try{
-        Fcursos =new FileInputStream("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculas\\cursos.txt");
-        estudiantes=new FileInputStream("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculas\\estudiantes.txt");
+        Fcursos =new FileInputStream("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculasTextFile\\cursos.txt");
+        estudiantes=new FileInputStream("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculasTextFile\\estudiantes.txt");
         
-        FWCursos=new FileWriter("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculas\\cursos.txt",true);
+        FWCursos=new FileWriter("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculasTextFile\\cursos.txt",true);
         bwCursos=new BufferedWriter(FWCursos);
-        FWestudiantes=new FileWriter("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculas\\estudiantes.txt",true);
+        FWestudiantes=new FileWriter("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculasTextFile\\estudiantes.txt",true);
         bwEstudiantes=new BufferedWriter(FWestudiantes);
         
         FRestudiantes=new DataInputStream(estudiantes);
