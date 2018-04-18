@@ -1,7 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Clase BinaryFile:Crea los archivos donde se guardará los objetos de
+ tipo curso. Guarda los Objetos de tipo curso en un archivo .txt
+ lee y carga los objetos guardados guardados. Al finalizar,
+ cierra los archivos
+ 
+  Autor: Jesus Ramirez-1731388  Samuel Velasco-1731295 Andrés Felipe-1730534
+  email: jesus.zuluaga@correounivalle.edu.co - samuel.velasco@correounivalle.edu.co - andres.lopez@correounivalle.edu.co
+  fecha: 21 Marzo 2018
  */
 package GestionDeMatriculasObjectFile;
 
@@ -23,7 +28,7 @@ import java.util.logging.Logger;
 public class ObjectFile {
     ObjectOutputStream outputCursos,outputEstudiantes;
     ObjectInputStream inputCursos,inputEstudiantes;
-    
+    //Crea el archivo
     public void openFiles(){
         try // open file
       {
@@ -38,7 +43,7 @@ public class ObjectFile {
          System.err.println( "Error opening file." );
       } // end catch
     }
-    
+    //Guarda los objetos en el archivo .txt
     public void addRecords(Universidad miuniversidad){
         Curso curso;
         Estudiante estudiante;
@@ -70,7 +75,7 @@ public class ObjectFile {
           }
       }
     }
-    
+    //Lee y carga los objetos en el archivo .txt
     public void readRecords(Universidad miuniversidad){
         Curso curso;
         
@@ -99,7 +104,7 @@ public class ObjectFile {
          System.err.println( "Error during reading from file." );
       }
     }
-    
+    //Cierra el archivo
     public void closeFiles(){
         try // close file
       {
