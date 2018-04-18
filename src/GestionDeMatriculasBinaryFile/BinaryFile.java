@@ -1,6 +1,9 @@
 /*
- Clase BinaryFile: Guarda los datos de los salones y estudiantes en sus respectivos archivos, 
- lee y carga los datos guardados de los estudiantes y cursos con anterioridad de los archivos.
+ Clase BinaryFile:Crea los archivos donde se guardará la información
+ referente a los cursos y estudiantes. Guarda los datos de los salones 
+ y estudiantes en sus respectivos archivos, lee y carga los datos guardados 
+ de los estudiantes y cursos con anterioridad de los archivos. Al finalizar,
+ cierra los archivos
  
   Autor: Jesus Ramirez-1731388  Samuel Velasco-1731295 Andrés Felipe-1730534
   email: jesus.zuluaga@correounivalle.edu.co - samuel.velasco@correounivalle.edu.co - andres.lopez@correounivalle.edu.co
@@ -16,6 +19,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
+//Crea los archivos
 public class BinaryFile {
     FileInputStream estudiantes,Fcursos;
     FileOutputStream foestudiantes=null;
@@ -51,6 +55,7 @@ public class BinaryFile {
             System.out.println("error"+e.getMessage());
         }
     }
+ //determina si el curso/estudiante ingresado ya existe en el archivo
     public boolean yaExiste(String archivo,String objeto){
         boolean respuesta=false;
         String linea;
@@ -83,7 +88,7 @@ public class BinaryFile {
         }
         return respuesta;
     }
-    
+    //Guarda todos los datos referentes a cursos y estudiantes en sus respectivos archivos
     public void guardarCursos(ArrayList cursos){
         try{
             
@@ -112,7 +117,7 @@ public class BinaryFile {
             System.out.println("error"+e.getMessage());
         }
     }
-    
+    //lee y carga todos los datos de los estudiantes y cursos guardados con anterioridad
     public void cargarDatos(Universidad miuniversidad){
         String linea;
         String cursos[]=new String[3];
@@ -165,7 +170,7 @@ public class BinaryFile {
             System.out.println("error"+e.getMessage());
         }
     }
-    
+    //Cierra los archivos
     public void closeFiles(){
         try{
         doCursos.close();
