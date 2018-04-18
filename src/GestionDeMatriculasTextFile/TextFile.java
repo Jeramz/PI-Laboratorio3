@@ -1,6 +1,9 @@
 /*
- Clase TextFile: Guarda los datos de los salones y estudiantes en sus respectivos archivos .txt, 
- lee y carga los datos guardados de los estudiantes y cursos con anterioridad de los archivos .txt.
+Clase TextFile:Crea los archivos .txt donde se guardará la información
+ referente a los cursos y estudiantes. Guarda los datos de los salones 
+ y estudiantes en sus respectivos archivos .txt, lee y carga los datos guardados 
+ de los estudiantes y cursos con anterioridad de los archivos. Al finalizar,
+ cierra los archivos .txt
  
   Autor: Jesus Ramirez-1731388  Samuel Velasco-1731295 Andrés Felipe-1730534
   email: jesus.zuluaga@correounivalle.edu.co - samuel.velasco@correounivalle.edu.co - andres.lopez@correounivalle.edu.co
@@ -29,7 +32,7 @@ public class TextFile {
     DataInputStream FRCursos=null;
     BufferedReader brCursos;
     int i;
-    
+    //Crea los archivos
     public TextFile(){
         try{
         Fcursos =new FileInputStream("C:\\Users\\Jesús Ramírez\\Documents\\NetBeansProjects\\PI-Laboratorio3\\src\\GestionDeMatriculasTextFile\\cursos.txt");
@@ -50,6 +53,7 @@ public class TextFile {
             System.out.println("error"+e.getMessage());
         }
     }
+ //Determina si el estudiante/curso ingresado existe en el archivo .txt
     public boolean yaExiste(String archivo,String objeto){
         boolean respuesta=false;
         String linea;
@@ -82,7 +86,7 @@ public class TextFile {
         }
         return respuesta;
     }
-    
+    //Guarda los cursos y estudiantes en sus respectivos archivos
     public void guardarCursos(ArrayList cursos){
         try{
             
@@ -111,7 +115,7 @@ public class TextFile {
             System.out.println("error"+e.getMessage());
         }
     }
-    
+    //Lee y carga los datos de los estudiantes/cursos de sus respectivos archivos
     public void cargarDatos(Universidad miuniversidad){
         String linea;
         String cursos[]=new String[3];
@@ -164,7 +168,7 @@ public class TextFile {
             System.out.println("error"+e.getMessage());
         }
     }
-    
+    //Cierra los archivos
     public void closeFiles(){
         try{
         bwCursos.close();
